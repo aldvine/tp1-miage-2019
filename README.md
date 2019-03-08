@@ -1,5 +1,5 @@
 # Nom des étudiants de ce binôme 
-(les DEUX noms) : XXXXX et XXXXXX
+LOISEAU Arnaud Et BLANCHARD Aldvine
 
 Commentaires éventuels des étudiants : XXXXXX
 
