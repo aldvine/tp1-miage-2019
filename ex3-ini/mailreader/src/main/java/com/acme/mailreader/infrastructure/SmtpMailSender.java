@@ -12,8 +12,9 @@ public class SmtpMailSender implements MailSender {
 
 	private Logger logger = Logger.getGlobal();
 
+	
 	public void envoyerMail(Mail mail) {
-		logger.info("Envoi d'un mail en SMTP");
+		System.out.println("Envoi d'un mail en SMTP");
 		// ... code qui utilise javax.mail...
 
 	}
