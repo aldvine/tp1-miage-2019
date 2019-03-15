@@ -1,6 +1,6 @@
 # Nom des étudiants de ce binôme 
 LOISEAU Arnaud Et BLANCHARD Aldvine
-
+---------------------------------------------------------------------------------------------
 Commentaires éventuels des étudiants : 
 # Exercice 1 - Réusiner la classe 'MailComparator'
 * Mise en place de constante pour une meilleure compréhension du code et éviter la dupplication.
@@ -60,6 +60,7 @@ Pour finir, lors de la réalisation du 5ème exercice, nous avons eu du mal à c
 # Conclusion
 En effectuant ce TP, nous avons appliqué les différents principes de conception vu en cours. Cela nous a permis de mieux comprendre ces principes et de revoir le cours plus en détail.
 
+----------------------------------------------------------------------------------------------------------
 # Pré-requis 
 * Disposer d'au moins un compte github par binome
 * Apporter son portable (les postes de l'université n'ont pas accès au proxy depuis Eclipse). Pas de préférence pour l'OS (Linux, OSX ou Windows).
