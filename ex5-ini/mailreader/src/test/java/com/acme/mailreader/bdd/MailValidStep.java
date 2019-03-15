@@ -6,7 +6,9 @@ import static org.junit.Assert.assertThat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.acme.mailreader.domain.DateIncorrecteException;
 import com.acme.mailreader.domain.Mail;
@@ -28,18 +30,26 @@ import cucumber.api.java.en.Then;
 public class MailValidStep {
 
 	
+	private static final Map<String, Integer> sujetValidAsString = new HashMap<String, Integer>();
+	static {
+		sujetValidAsString.put("OK", 1);
+		sujetValidAsString.put("NOK", -1);
+	}
 	private Mail mail;
 	@Given("^Un mail avec l'importance \"([^\"]*)\", le statut \"([^\"]*)\", le sujet \"([^\"]*)\" et la date \"([^\"]*)\"$")
-	public void un_premier_mail(boolean importance, Statut statut, String sujet, String date)
+	public void un_mail(boolean importance, Statut statut, String sujet, String date)
 			throws DateIncorrecteException {
 
 		this.mail = new Mail.Builder(sujet).important(importance).statut(statut).date(Instant.parse(date)).build();
 	}
 
 	
-	@Then("^Le resultat doit être \"([^\"]*)\"$")
-	public void statutMail(String resu) throws Throwable {
-	
-		assertThat(this.mail.getSujet(),is(resu));
+	@Then("^le sujet doit être non vide : \"([^\"]*)\"$")
+	public void sujetMailValide(String sujet_valide) throws Throwable {
+		Integer valide = -1;
+		if(this.mail.getSujet() != null && this.mail.getSujet() != ""  && !this.mail.getSujet().isEmpty()) {
+			valide  = 1;
+		}
+		assertThat(valide,is(sujetValidAsString.get(sujet_valide)));
 	}
 }

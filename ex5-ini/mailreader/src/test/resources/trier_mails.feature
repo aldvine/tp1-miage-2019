@@ -42,12 +42,12 @@ Then la liste ordonnée doit être :
 
 Scenario Outline: Validation du mail
 Given Un mail avec l'importance "<important>", le statut "<statut>", le sujet "<sujet>" et la date "<date>"
-Then le tri doit retourner "<resu>"
+Then le sujet doit être non vide : "<sujet_valide>" 
 
-# Le resultat doit être  : NOK, OK
+# le sujet doit être non vide : NOK, OK
 	
 Examples:
-| important 	| statut     | sujet      | date				 | resu		 |
-| OUI 			| PAS_ENVOYE | Bonjour	  | 2017-01-01T14:03:00Z | NOK  	 |
-
+| important 	| statut     | sujet   | date				  | sujet_valide  |
+| true 			| PAS_ENVOYE | Bonjour | 2017-01-01T14:03:00Z | OK 			  | 
+| true 			| PAS_ENVOYE | 		   | 2017-01-01T14:03:00Z | NOK 	 	  |
 

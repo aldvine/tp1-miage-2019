@@ -50,14 +50,14 @@ public class MailComparatorTest {
 		assertThat(comparator.compare(mail2, mail3),is(1));
 	}
 	@Test
-	public final void Mail1PlusImportantQueLeMail2SiMail1ALeStatutImportantAVrai() throws DateIncorrecteException{
+	public final void mail1PlusImportantQueLeMail2SiMail1ALeStatutImportantAVrai() throws DateIncorrecteException{
 		Mail mail1 = new Mail.Builder("test").important(true).statut(Statut.READ).date(Instant.now()).build();
 		Mail mail2 = new Mail.Builder("test").important(false).statut(Statut.READ).date(Instant.now()).build();
 		assertThat(comparator.compare(mail1, mail2), is(-1));
 	}
 	
 	@Test
-	public final void Mail1PlusImportantQueLeMail2SiMail1AUneDate() throws DateIncorrecteException{
+	public final void mail1PlusImportantQueLeMail2SiMail1AUneDate() throws DateIncorrecteException{
 		Mail mail1 = new Mail.Builder("test").important(false).statut(Statut.READ).date(Instant.now()).build();
 		Mail mail2 = new Mail.Builder("test").important(false).statut(Statut.READ).build();
 		assertThat(comparator.compare(mail1, mail2), is(-1));
