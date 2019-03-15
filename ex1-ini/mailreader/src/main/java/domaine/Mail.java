@@ -1,4 +1,4 @@
-package com.acme.mailreader.model;
+package domaine;
 
 import java.time.Instant;
 

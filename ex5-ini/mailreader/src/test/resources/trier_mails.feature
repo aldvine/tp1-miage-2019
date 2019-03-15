@@ -40,4 +40,14 @@ Then la liste ordonnée doit être :
 | false      | LU		 		 | bbbbb					| 2016-12-01T14:03:00Z | 
 | false      | PAS_ENVOYE 		 | aaaaa					| 2017-01-01T14:03:00Z |
 
+Scenario Outline: Validation du mail
+Given Un mail avec l'importance "<important>", le statut "<statut>", le sujet "<sujet>" et la date "<date>"
+Then le tri doit retourner "<resu>"
+
+# Le resultat doit être  : NOK, OK
+	
+Examples:
+| important 	| statut     | sujet      | date				 | resu		 |
+| OUI 			| PAS_ENVOYE | Bonjour	  | 2017-01-01T14:03:00Z | NOK  	 |
+
 

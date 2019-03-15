@@ -2,7 +2,7 @@ package com.acme.mailreader.utils;
 
 import java.util.Comparator;
 
-import com.acme.mailreader.model.Mail;
+import domaine.Mail;
 
 /**
  * Comparateur de mails
