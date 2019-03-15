@@ -12,7 +12,6 @@ public class MailService {
 	
 	private static final int TAILLE_MAX_SUJET = 20;
 	
-	//TODO : injecter par constructeur un sender
 	private MailSender sender;
 	
 	@Inject
@@ -43,7 +42,6 @@ public class MailService {
 	 * @return l'ensemble des mails de la boite ou une liste vide si aucun
 	 */
 	public List<Mail> getTousLesMails() {
-		//TODO
 		return new ArrayList<Mail>();
 	}
 

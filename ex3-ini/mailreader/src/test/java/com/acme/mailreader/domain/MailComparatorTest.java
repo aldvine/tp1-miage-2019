@@ -20,24 +20,18 @@ public class MailComparatorTest {
 	public void setUp() throws Exception {
 		this.comparator = new MailComparator();
 	}
-
 	@Test
 	public final void egauxSiDeuxMailsNuls() {
 		Mail mail1 = null;
 		Mail mail2 = null;
 		assertThat(comparator.compare(mail1, mail2), is(0));
 	}
-	
 	@Test
 	public final void egauxSiUnDesMailsNuls() {
 		Mail mail1 = new Mail();
 		Mail mail2 = null;
 		assertThat(comparator.compare(mail1, mail2), is(0));
-	}
-	
-	//TODO
-	//Autres tests unitaires
-	
+	}	
 	@Test
 	public final void mailLuPlusGrand() throws DateIncorrecteException{
 		Mail mail1 = new Mail.Builder("uyyuy").important(false).statut(Statut.UNSENT).build();
@@ -55,6 +49,20 @@ public class MailComparatorTest {
 		assertThat(comparator.compare(mail1, mail2),is(1));
 		assertThat(comparator.compare(mail2, mail3),is(1));
 	}
+	@Test
+	public final void Mail1PlusImportantQueLeMail2SiMail1ALeStatutImportantAVrai() throws DateIncorrecteException{
+		Mail mail1 = new Mail.Builder("test").important(true).statut(Statut.READ).date(Instant.now()).build();
+		Mail mail2 = new Mail.Builder("test").important(false).statut(Statut.READ).date(Instant.now()).build();
+		assertThat(comparator.compare(mail1, mail2), is(-1));
+	}
+	
+	@Test
+	public final void Mail1PlusImportantQueLeMail2SiMail1AUneDate() throws DateIncorrecteException{
+		Mail mail1 = new Mail.Builder("test").important(false).statut(Statut.READ).date(Instant.now()).build();
+		Mail mail2 = new Mail.Builder("test").important(false).statut(Statut.READ).build();
+		assertThat(comparator.compare(mail1, mail2), is(-1));
+	}
+	
 
 	
 	

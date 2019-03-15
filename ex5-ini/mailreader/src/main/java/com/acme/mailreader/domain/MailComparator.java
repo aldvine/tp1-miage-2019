@@ -38,7 +38,7 @@ public class MailComparator implements Comparator<Mail> {
 		if (mail1.getDate() != null && mail2.getDate() == null) {
 			return PREMIER_PLUS_GRAND;
 		}
-		return mail1.getDate().compareTo(mail2.getDate());
+		return mail2.getDate().compareTo(mail1.getDate());
 	}
 
 	private int trierParImportance(Mail mail1, Mail mail2) {
